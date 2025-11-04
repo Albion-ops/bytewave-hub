@@ -1,17 +1,21 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Camera, HardDrive, Monitor, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import cctvImage from "@/assets/cctv-service.jpg";
 import hardwareImage from "@/assets/hardware-service.jpg";
 import posImage from "@/assets/pos-service.jpg";
 
 const Services = () => {
+  const navigate = useNavigate();
+
   const services = [
     {
       title: "CCTV Installation Services",
       description: "Professional installation of cutting-edge surveillance systems to protect your property and ensure complete security coverage.",
       icon: Camera,
       image: cctvImage,
+      link: "/services/cctv",
       features: [
         "HD & 4K Camera Systems",
         "Remote Monitoring",
@@ -24,6 +28,7 @@ const Services = () => {
       description: "Complete computer hardware supply and software maintenance services to keep your business running smoothly and efficiently.",
       icon: HardDrive,
       image: hardwareImage,
+      link: null,
       features: [
         "Computer Hardware Supply",
         "Software Installation & Updates",
@@ -36,6 +41,7 @@ const Services = () => {
       description: "Tailored point-of-sale solutions designed specifically for your business operations, from retail to hospitality.",
       icon: Monitor,
       image: posImage,
+      link: "/services/pos",
       features: [
         "Custom-Built Systems",
         "Inventory Management",
@@ -94,7 +100,12 @@ const Services = () => {
                     ))}
                   </ul>
 
-                  <Button variant="ghost" className="group/btn w-full">
+                  <Button 
+                    variant="ghost" 
+                    className="group/btn w-full"
+                    onClick={() => service.link && navigate(service.link)}
+                    disabled={!service.link}
+                  >
                     Learn More
                     <ArrowRight 
                       size={16} 
