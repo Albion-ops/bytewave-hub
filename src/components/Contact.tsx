@@ -38,6 +38,12 @@ const Contact = () => {
       link: "mailto:bytewave25@gmail.com",
     },
     {
+      icon: Mail,
+      title: "Email",
+      detail: "georgekoikai922@gmail.com",
+      link: "mailto:georgekoikai922@gmail.com",
+    },
+    {
       icon: MapPin,
       title: "Address",
       detail: "Kenyatta Avenue, Highway Towers Plaza, Nakuru",
