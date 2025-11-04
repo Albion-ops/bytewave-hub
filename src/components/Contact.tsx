@@ -28,19 +28,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      detail: "+254-706-312-266",
+      link: "tel:+254706312266",
     },
     {
       icon: Mail,
       title: "Email",
-      detail: "info@bytewave.tech",
-      link: "mailto:info@bytewave.tech",
+      detail: "bytewave25@gmail.com",
+      link: "mailto:bytewave25@gmail.com",
     },
     {
       icon: MapPin,
       title: "Address",
-      detail: "123 Tech Street, Silicon Valley, CA 94025",
+      detail: "Kenyatta Avenue, Highway Towers Plaza, Nakuru",
       link: "#",
     },
   ];
