@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Camera, CheckCircle, ArrowLeft, Shield, Eye, Clock } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -157,19 +157,19 @@ const CCTVDetails = () => {
                 running flawlessly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  onClick={() => navigate("/#contact")}
-                >
-                  Get a Free Quote
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => navigate("/#contact")}
-                >
-                  Schedule Consultation
-                </Button>
+                <Link to="/#contact">
+                  <Button size="lg">
+                    Get a Free Quote
+                  </Button>
+                </Link>
+                <Link to="/#contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                  >
+                    Schedule Consultation
+                  </Button>
+                </Link>
               </div>
             </Card>
           </div>

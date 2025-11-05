@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Monitor, CheckCircle, ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -121,13 +121,14 @@ const POSDetails = () => {
                   Our team will work with you to design a POS system that perfectly 
                   fits your business needs. Schedule a free consultation today.
                 </p>
-                <Button 
-                  size="lg" 
-                  className="w-full"
-                  onClick={() => navigate("/#contact")}
-                >
-                  Contact Us Today
-                </Button>
+                <Link to="/#contact">
+                  <Button 
+                    size="lg" 
+                    className="w-full"
+                  >
+                    Contact Us Today
+                  </Button>
+                </Link>
               </Card>
             </div>
           </div>
