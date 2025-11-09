@@ -8,6 +8,12 @@ import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import POSDetails from "./pages/POSDetails";
 import CCTVDetails from "./pages/CCTVDetails";
+import { ProtectedRoute } from "./components/admin/ProtectedRoute";
+import { AdminLayout } from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminPosts from "./pages/admin/Posts";
+import AdminCategories from "./pages/admin/Categories";
+import UserRoles from "./pages/admin/UserRoles";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +28,49 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/services/pos" element={<POSDetails />} />
           <Route path="/services/cctv" element={<CCTVDetails />} />
+          
+          {/* Admin Routes */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout>
+                  <AdminDashboard />
+                </AdminLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/posts"
+            element={
+              <ProtectedRoute>
+                <AdminLayout>
+                  <AdminPosts />
+                </AdminLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/categories"
+            element={
+              <ProtectedRoute>
+                <AdminLayout>
+                  <AdminCategories />
+                </AdminLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/roles"
+            element={
+              <ProtectedRoute>
+                <AdminLayout>
+                  <UserRoles />
+                </AdminLayout>
+              </ProtectedRoute>
+            }
+          />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
