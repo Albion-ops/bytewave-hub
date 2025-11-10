@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { CommentSection } from "@/components/CommentSection";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
@@ -141,6 +142,9 @@ const BlogPost = () => {
           <div className="border-t pt-12">
             <CommentSection postId={post.id} />
           </div>
+
+          {/* Related Posts Section */}
+          <RelatedPosts currentPostId={post.id} categoryId={post.category_id} />
         </article>
       </main>
       <Footer />
