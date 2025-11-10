@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { User } from "@supabase/supabase-js";
 import { useToast } from "@/hooks/use-toast";
@@ -41,10 +41,11 @@ const Navigation = () => {
   };
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home", isRoute: false },
+    { name: "Services", href: "/#services", isRoute: false },
+    { name: "Blog", href: "/blog", isRoute: true },
+    { name: "About", href: "/#about", isRoute: false },
+    { name: "Contact", href: "/#contact", isRoute: false },
   ];
 
   return (
@@ -60,15 +61,25 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-smooth"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => 
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
             {user ? (
               <Button variant="hero" size="default" onClick={handleSignOut}>
                 <LogOut size={16} className="mr-2" />
@@ -93,16 +104,27 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block text-foreground hover:text-primary transition-smooth"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => 
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block text-foreground hover:text-primary transition-smooth"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-foreground hover:text-primary transition-smooth"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
+            )}
             {user ? (
               <Button variant="hero" size="default" className="w-full" onClick={handleSignOut}>
                 <LogOut size={16} className="mr-2" />

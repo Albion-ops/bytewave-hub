@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import POSDetails from "./pages/POSDetails";
 import CCTVDetails from "./pages/CCTVDetails";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import { ProtectedRoute } from "./components/admin/ProtectedRoute";
 import { AdminLayout } from "./components/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/services/pos" element={<POSDetails />} />
           <Route path="/services/cctv" element={<CCTVDetails />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           
           {/* Admin Routes */}
           <Route
